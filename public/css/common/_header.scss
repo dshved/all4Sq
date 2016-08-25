@@ -1,0 +1,17 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  background-color: $bg_color;
+  padding: 0 20px;
+  &__logout_btn {
+    color: #fff;
+    font-family: "Verdana";
+    font-size: 16px;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
