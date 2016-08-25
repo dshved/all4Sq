@@ -4,7 +4,7 @@ var request = require("request");
 
 function requireLogin(req, res, next) {
   if (!req.session.access_token) {
-    res.redirect('/auth');
+    res.render('welcome');
     res.end();
   } else {
     next();
@@ -29,8 +29,8 @@ function today() {
   return today;
 }
 
-/* GET home page. */
 router.get('/', requireLogin, function(req, res, next) {
+
   var url = 'https://api.foursquare.com/v2/users/self?oauth_token=' +
     req.session.access_token + '&v='+ today();
   request(url, function(error, response, body) {
@@ -39,8 +39,8 @@ router.get('/', requireLogin, function(req, res, next) {
     res.render('index', {title: user_id});
     res.end();
   });
-
-  // res.render('index', { title: req.session.access_token });
 });
+
+
 
 module.exports = router;
