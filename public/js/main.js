@@ -32,6 +32,7 @@ function initMap() {
     panControl: false,
     streetViewControl: false,
     draggable: true,
+    draggable: !("ontouchend" in document),
     overviewMapControl: false,
     overviewMapControlOptions: {
       opened: false,
