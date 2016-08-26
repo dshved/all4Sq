@@ -16,16 +16,14 @@ body {
   min-height: 568px;
 }
 
-.container {}
-
-@import 'common/_variables';
-@import 'common/_header';
-@import 'common/_welcome';
-
-.map_container {
-  height: 450px;
+.container {
+  min-width: 320px;
+  max-width: 520px;
+  margin: 0 auto;
 }
 
-#map {
-  height: 100%;
-}
+@import 'common/variables';
+@import 'common/header';
+@import 'common/welcome';
+@import 'common/map';
+@import 'common/venues';

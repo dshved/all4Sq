@@ -11,7 +11,26 @@ function showVenues(lat, lng) {
       var venues = data['response']['venues'];
 
       for (var i = 0; i < venues.length; i++) {
-        $('#list').append('<li>' + venues[i]['name'] + '</li>');
+        var name = venues[i]['name'];
+        var icon_prefix = venues[i]['categories'][0]['icon']['prefix'];
+        var icon_suffix = venues[i]['categories'][0]['icon']['suffix'];
+        var icon_src = icon_prefix + 'bg_32' + icon_suffix;
+
+        var location_address = venues[i]['location']['address'] || '';
+        var location_city = venues[i]['location']['city'] || '';
+        var location = location_city +' '+ location_address;
+
+        $('#list').append('<li class="venues__items">' +
+        '<a class="venues__link" href="#">'+
+          '<div class="venues__img">' +
+            '<img src="' + icon_src + '">' + 
+          '</div>'+
+          '<div class="venues__info">'+
+            '<div class="venues__name">' + name + '</div>'+
+            '<div class="venues__location">' + location + '</div>'+
+          '</div>'+
+        '</a>'+
+        '</li>');
       };
     })
     .fail(function(data) {
