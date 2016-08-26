@@ -3,9 +3,7 @@
 
 html,
 body {
-  height: 100%; }
-
-body {
+  height: 100%;
   margin: 0;
   padding: 0; }
 
@@ -14,10 +12,6 @@ body {
   height: 100%;
   min-width: 320px;
   min-height: 568px; }
-
-#mymap {
-  width: 100%;
-  min-height: 500px; }
 
 .header {
   display: -webkit-flex;
@@ -71,3 +65,9 @@ body {
   text-decoration: none; }
   .auth_btn:hover {
     background-color: rgba(255, 255, 255, 0.1); }
+
+.map_container {
+  height: 500px; }
+
+#map {
+  height: 100%; }

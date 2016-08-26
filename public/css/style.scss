@@ -1,4 +1,3 @@
-
 * {
   box-sizing: border-box;
 }
@@ -6,9 +5,6 @@
 html,
 body {
   height: 100%;
-}
-
-body {
   margin: 0;
   padding: 0;
 }
@@ -20,14 +16,16 @@ body {
   min-height: 568px;
 }
 
-.container {
+.container {}
 
-}
-#mymap {
-  width: 100%;
-  min-height: 500px;
-}
 @import 'common/_variables';
 @import 'common/_header';
 @import 'common/_welcome';
 
+.map_container {
+  height: 500px;
+}
+
+#map {
+  height: 100%;
+}
