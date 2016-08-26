@@ -31,7 +31,7 @@ router.get('/venues/search', function(req, res, next) {
   var ll = req.query['ll'];
   var url = 'https://api.foursquare.com/v2/venues/search?ll=' + ll +
     '&oauth_token=' + req.session.access_token +
-    '&v='+ today();
+    '&v=' + today();
 
   request(url, function(error, response, body) {
     var json = JSON.parse(body);
@@ -44,10 +44,10 @@ router.post('/checkins/add', function(req, res, next) {
   var venues_id = req.body['venues_id'];
   if (venues_id) {
     request.post({
-      headers: {'content-type' : 'application/x-www-form-urlencoded; charset=UTF-8'},
+      headers: { 'content-type': 'application/x-www-form-urlencoded; charset=UTF-8' },
       url: 'https://api.foursquare.com/v2/checkins/add?' +
         '&oauth_token=' + req.session.access_token +
-        '&v='+today()+'&broadcast=public',
+        '&v=' + today() + '&broadcast=public',
       body: "venueId=" + venues_id
     }, function(error, response, body) {
       res.send(body);
@@ -57,6 +57,7 @@ router.post('/checkins/add', function(req, res, next) {
     res.send('not id venues');
     res.end();
   }
+
 })
 
 module.exports = router;

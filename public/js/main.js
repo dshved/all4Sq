@@ -20,19 +20,19 @@ function showVenues(lat, lng) {
 
         var location_address = venues[i]['location']['address'] || '';
         var location_city = venues[i]['location']['city'] || '';
-        var location = location_city +' '+ location_address;
+        var location = location_city + ' ' + location_address;
 
         $('#list').append('<li class="venues__items">' +
-        '<a class="venues__link" data-venues-id= '+venues_id +' href="#">'+
+          '<a class="venues__link" data-venues-id= ' + venues_id + ' href="#">' +
           '<div class="venues__img">' +
-            '<img src="' + icon_src + '">' + 
-          '</div>'+
-          '<div class="venues__info">'+
-            '<div class="venues__name">' + name + '</div>'+
-            '<div class="venues__location">' + location + '</div>'+
-          '</div>'+
-        '</a>'+
-        '</li>');
+          '<img src="' + icon_src + '">' +
+          '</div>' +
+          '<div class="venues__info">' +
+          '<div class="venues__name">' + name + '</div>' +
+          '<div class="venues__location">' + location + '</div>' +
+          '</div>' +
+          '</a>' +
+          '</li>');
       };
     })
     .fail(function(data) {
@@ -125,21 +125,29 @@ function deleteMarkers() {
 
 initMap();
 
-$('body').on('click', '.venues__link', function(e){
+$('body').on('click', '.venues__link', function(e) {
   e.preventDefault();
   var venues_id = $(this).data('venues-id');
   $.ajax({
-    url: '/api/checkins/add',
-    type: 'POST',
-    data: {venues_id: venues_id},
-  })
-  .done(function(data) {
-    console.log(data);
-  })
-  .fail(function(data) {
-    console.log(data);
-  });
-  
-  // console.log(venues_id);
-});
+      url: '/api/checkins/add',
+      type: 'POST',
+      data: { venues_id: venues_id },
+    })
+    .done(function(data) {
+      var data = JSON.parse(data);
 
+      var code = data['meta'][code];
+      if (code === 200) {
+        // var total_score = data['response']['checkin']['score']['total'];
+        alert('Checkin added!');
+      } else {
+        alert(data['meta']['errorDetail']);
+      };
+
+    })
+    .fail(function(data) {
+      console.log(data, 455);
+    });
+
+
+});

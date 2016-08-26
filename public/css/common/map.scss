@@ -1,5 +1,15 @@
 .map_container {
   height: 450px;
+  margin-bottom: 20px;
+  @include phone {
+    height: 260px;
+  }
+  @include phoneL {
+    height: 350px;
+  }
+  @include tablet {
+    height: 400px;
+  }
 }
 
 #map {

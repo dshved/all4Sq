@@ -9,13 +9,11 @@ body {
 
 .wrapper {
   width: 100%;
-  height: 100%;
-  min-width: 320px;
-  min-height: 568px; }
+  min-height: 100%;
+  min-width: 320px; }
 
 .container {
   min-width: 320px;
-  max-width: 520px;
   margin: 0 auto; }
 
 .header {
@@ -72,7 +70,17 @@ body {
     background-color: rgba(255, 255, 255, 0.1); }
 
 .map_container {
-  height: 450px; }
+  height: 450px;
+  margin-bottom: 20px; }
+  @media (max-width: 376px) {
+    .map_container {
+      height: 260px; } }
+  @media (min-width: 376px) and (max-width: 425px) {
+    .map_container {
+      height: 350px; } }
+  @media (min-width: 426px) and (max-width: 768px) {
+    .map_container {
+      height: 400px; } }
 
 #map {
   height: 100%; }
@@ -80,68 +88,75 @@ body {
 #list {
   overflow-y: auto;
   height: 300px; }
+  @media (max-width: 376px) {
+    #list {
+      height: 238px; } }
+  @media (min-width: 376px) and (max-width: 425px) {
+    #list {
+      height: 310px; } }
+  @media (min-width: 426px) and (max-width: 768px) {
+    #list {
+      height: 310px; } }
 
-.venues__list {
-  margin: 0;
-  padding: 0;
-  list-style-type: none; }
-
-.venues__items {
-  position: relative;
-  margin: 20px;
-  border-radius: 5px;
-  background-color: #e9e9e9; }
-
-.venues__link {
-  position: relative;
-  padding: 10px;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  text-decoration: none; }
-  .venues__link:hover:before {
-    content: '';
-    display: block;
+.venues {
+  max-width: 500px;
+  margin: 0 auto; }
+  .venues__list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none; }
+  .venues__items {
+    position: relative;
+    margin: 0 20px 20px;
+    border-radius: 5px;
+    background-color: #e9e9e9; }
+  .venues__link {
+    position: relative;
+    padding: 10px;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
     width: 100%;
     height: 100%;
-    position: absolute;
-    background-color: #406be8;
-    top: 0;
-    left: 0;
-    border-radius: 5px; }
-  .venues__link:hover:after {
-    color: #fff;
+    text-decoration: none; }
+    .venues__link:hover:before {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      background-color: #406be8;
+      top: 0;
+      left: 0;
+      border-radius: 5px; }
+    .venues__link:hover:after {
+      color: #fff;
+      font-family: "Verdana";
+      font-size: 16px;
+      content: 'CHECKIN';
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%); }
+  .venues__info {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    margin-left: 10px; }
+  .venues__name {
+    color: #333;
     font-family: "Verdana";
-    font-size: 16px;
-    content: 'CHECKIN';
-    display: block;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%); }
-
-.venues__info {
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  margin-left: 10px; }
-
-.venues__name {
-  color: #333;
-  font-family: "Verdana";
-  font-size: 14px; }
-
-.venues__location {
-  color: #9f9f9f;
-  font-family: "Verdana";
-  font-size: 11px; }
+    font-size: 14px; }
+  .venues__location {
+    color: #9f9f9f;
+    font-family: "Verdana";
+    font-size: 11px; }
