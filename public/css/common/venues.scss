@@ -1,21 +1,11 @@
-#list {
-  overflow-y: auto;
-  height: 300px;
-  @include phone {
-    height: 238px;
-  }
-  @include phoneL {
-    height: 310px;
-  }
-  @include tablet {
-    height: 310px;
-  }
-}
-
 .venues {
+  height: 50%;
   max-width: 500px;
   margin: 0 auto;
+  padding: 20px 0;
   &__list {
+    height: 100%;
+    overflow-y: auto;
     margin: 0;
     padding: 0;
     list-style-type: none;

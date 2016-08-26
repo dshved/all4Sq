@@ -136,9 +136,9 @@ $('body').on('click', '.venues__link', function(e) {
     .done(function(data) {
       var data = JSON.parse(data);
 
-      var code = data['meta'][code];
+      var code = data['meta']['code'];
       if (code === 200) {
-        // var total_score = data['response']['checkin']['score']['total'];
+        var total_score = data['response']['checkin']['score']['total'];
         alert('Checkin added!');
       } else {
         alert(data['meta']['errorDetail']);
