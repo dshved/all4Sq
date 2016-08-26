@@ -12,6 +12,8 @@ function showVenues(lat, lng) {
 
       for (var i = 0; i < venues.length; i++) {
         var name = venues[i]['name'];
+        var venues_id = venues[i]['id'];
+
         var icon_prefix = venues[i]['categories'][0]['icon']['prefix'];
         var icon_suffix = venues[i]['categories'][0]['icon']['suffix'];
         var icon_src = icon_prefix + 'bg_32' + icon_suffix;
@@ -21,7 +23,7 @@ function showVenues(lat, lng) {
         var location = location_city +' '+ location_address;
 
         $('#list').append('<li class="venues__items">' +
-        '<a class="venues__link" href="#">'+
+        '<a class="venues__link" data-venues-id= '+venues_id +' href="#">'+
           '<div class="venues__img">' +
             '<img src="' + icon_src + '">' + 
           '</div>'+
@@ -122,3 +124,22 @@ function deleteMarkers() {
 }
 
 initMap();
+
+$('body').on('click', '.venues__link', function(e){
+  e.preventDefault();
+  var venues_id = $(this).data('venues-id');
+  $.ajax({
+    url: '/api/checkins/add',
+    type: 'POST',
+    data: {venues_id: venues_id},
+  })
+  .done(function(data) {
+    console.log(data);
+  })
+  .fail(function(data) {
+    console.log(data);
+  });
+  
+  // console.log(venues_id);
+});
+
